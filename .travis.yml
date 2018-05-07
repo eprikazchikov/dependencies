@@ -7,4 +7,6 @@ matrix:
     - os: linux
       script:
         - ls
+        - tar -zcvf ThunderEngine-linux-x86_64.tar.gz README.md
+        - ls
         - curl --upload-file ThunderEngine-linux-x86_64.tar.gz -u $FTP_USER:$FTP_PASSWORD ftp://ftp.thunderengine.ru/ThunderEngine-macos-x86_64.tar.gz
