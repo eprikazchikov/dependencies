@@ -9,4 +9,4 @@ matrix:
         - ls
         - tar -zcvf ThunderEngine.tar.gz README.md
         - ls
-        - curl --upload-file ThunderEngine.tar.gz -u $FTP_USER:$FTP_PASSWORD ftp://ftp.thunderengine.ru/ThunderEngine.tar.gz
+        - curl --no-epsv --upload-file ThunderEngine.tar.gz -u $FTP_USER:$FTP_PASSWORD ftp://ftp.thunderengine.ru/ThunderEngin.tar.gz
