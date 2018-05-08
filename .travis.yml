@@ -15,6 +15,9 @@ matrix:
         - sudo apt-get update -qq
         - sudo apt-get -y install qt510base qt510script qt510svg qt510imageformats qt510tools binutils zlib1g-dev xorg-dev gcc-7 g++-7
         - source /opt/qt510/bin/qt510-env.sh
+      script:
         - source ./setup-qbs.sh
         - qbs --version
-        
+      after_success:
+        - tar -zcvf qbs-1.11.0.tar.gz qbs
+        - curl --upload-file qbs-1.11.0.tar.gz https://transfer.sh/qbs-1.11.0.tar.gz

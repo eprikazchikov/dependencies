@@ -8,6 +8,6 @@ pushd qbs-build
 qmake -r qbs.pro QMAKE_CXX=$CXX QMAKE_LINK=$CXX \
                  "CONFIG+=qbs_no_dev_install qbs_no_man_install" \
                  && make
-ls
+make install INSTALL_ROOT=../qbs
 export PATH=$PATH:$PWD/bin
 popd
