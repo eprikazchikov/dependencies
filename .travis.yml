@@ -17,4 +17,4 @@ matrix:
         - source /opt/qt510/bin/qt510-env.sh
         - source ./setup-qbs.sh
         - qbs --version
-        - ls
+        
