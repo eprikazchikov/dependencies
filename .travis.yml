@@ -5,8 +5,16 @@ dist: trusty
 matrix:
   include:
     - os: linux
-      script:
+      compiler: gcc
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+      before_install:
+        - eval "${MATRIX_EVAL}"
+        - sudo add-apt-repository --yes ppa:beineri/opt-qt-5.10.1-trusty
+        - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+        - sudo apt-get update -qq
+        - sudo apt-get -y install qt510base qt510script qt510svg qt510imageformats qt510tools binutils zlib1g-dev xorg-dev gcc-7 g++-7
+        - source /opt/qt510/bin/qt510-env.sh
+        - source ./setup-qbs.sh
+        - qbs --version
         - ls
-        - tar -zcvf ThunderEngine.tar.gz README.md
-        - ls
-        - sudo curl --no-epsv --ftp-pasv --ftp-skip-pasv-ip --upload-file ThunderEngine.tar.gz -u $FTP_USER:$FTP_PASSWORD ftp://ftp.thunderengine.ru/ThunderEngin.tar.gz
