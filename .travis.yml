@@ -19,5 +19,5 @@ matrix:
         - source ./setup-qbs.sh
         - qbs --version
       after_success:
-        - tar -zcvf qbs-1.11.0.tar.gz qbs
+        - tar -zcvf qbs-1.11.0.tar.gz qbs-build
         - curl --upload-file qbs-1.11.0.tar.gz https://transfer.sh/qbs-1.11.0.tar.gz
