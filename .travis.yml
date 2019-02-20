@@ -20,4 +20,22 @@ matrix:
         - qbs --version
       after_success:
         - tar -zcvf qbs-1.12.2.tar.gz qbs-build
-        - curl --upload-file qbs-1.12.2.tar.gz https://transfer.sh/qbs-1.12.2.tar.gz
+        - curl --upload-file qbs-1.12.2.tar.gz https://transfer.sh/qbs-1.12.2-linux.tar.gz
+        
+    - language: cpp
+      os: osx
+      osx_image: xcode9.3
+      before_install:
+        - brew update
+        - brew install qt5
+        - ls /usr/local/opt/qt/bin
+        - source /usr/local/opt/qt/bin/qt512-env.sh
+        - qbs --version
+        - qbs setup-toolchains --detect
+        - qbs setup-qt /usr/local/opt/qt/bin/qmake qt-brew
+      script:
+        - source ./setup-qbs.sh
+        - qbs --version
+      after_success:
+        - tar -zcvf qbs-1.12.2.tar.gz qbs-build
+        - curl --upload-file qbs-1.12.2.tar.gz https://transfer.sh/qbs-1.12.2-macos.tar.gz
