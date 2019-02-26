@@ -29,7 +29,6 @@ matrix:
         - brew update
         - brew install qt5
         - ls /usr/local/opt/qt/bin
-        - source /usr/local/opt/qt/bin/qt512-env.sh
         - qbs --version
         - qbs setup-toolchains --detect
         - qbs setup-qt /usr/local/opt/qt/bin/qmake qt-brew
